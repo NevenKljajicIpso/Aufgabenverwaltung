@@ -25,7 +25,7 @@ include('db_connection.php');
                     // Check if the due date is in the past
                     if (strtotime($due_date) < time()) {
                         $error_Message = "Due date cannot be in the past";
-                        echo "<script type='text/javascript'>alert('$error_message');</script>";
+                        echo "<script type='text/javascript'>alert('$error_Message');</script>";
                     } else {
                         // Insert the task into the database
                         $sql = "INSERT INTO tasks (title, description, person_id, task_type_id, due_date) VALUES ('$title', '$description', '$person_id', '$task_type_id', '$due_date')";
@@ -33,7 +33,7 @@ include('db_connection.php');
                             // added successfully task
                         } else {
                             $error_Message = "Error: " . $sql . "<br>" . mysqli_error($conn);
-                            echo "<script type='text/javascript'>alert('$error_message');</script>";
+                            echo "<script type='text/javascript'>alert('$error_Message');</script>";
                         }
                     }
             } 
@@ -55,7 +55,7 @@ include('db_connection.php');
                     // Check if the due date is in the past
                     if (strtotime($due_date) < time()) {
                         $error_Message = "Due date cannot be in the past";
-                        echo "<script type='text/javascript'>alert('$error_message');</script>";
+                        echo "<script type='text/javascript'>alert('$error_Message');</script>";
                     } else {
                         // Insert the task into the database
                         $sql = "INSERT INTO tasks (title, description, person_id, task_type_id, due_date) VALUES ('$title', '$description', '$person_id', '$task_type_id', '$due_date')";
@@ -63,7 +63,7 @@ include('db_connection.php');
                             // added successfully task
                         } else {
                             $error_Message = "Error: " . $sql . "<br>" . mysqli_error($conn);
-                            echo "<script type='text/javascript'>alert('$error_message');</script>";
+                            echo "<script type='text/javascript'>alert('$error_Message');</script>";
                         }
                     }
             }
