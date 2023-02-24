@@ -74,7 +74,7 @@
     </div>  
 
     <div>
-      <form method="post" enctype="multipart/form-data" action="importTask2.php">
+      <form method="post" enctype="multipart/form-data" action="importTask.php">
         <label for="import_file">Import File:</label>
         <input type="file" name="import_file" accept=".json, .xml">
         <input type="submit" value="Import">

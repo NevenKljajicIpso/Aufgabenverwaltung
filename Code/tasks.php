@@ -16,14 +16,14 @@
     </div>
 
     <div>
-      <?php include 'createNewTaskTest.php'; ?>
+      <?php include 'createNewTask.php'; ?>
     </div>
     <br>
     <br>
     <br>
 
     <div>
-      <?php include 'displayTaskTest2.php'; ?>
+      <?php include 'displayTasks.php'; ?>
     </div>  
 
   </div>

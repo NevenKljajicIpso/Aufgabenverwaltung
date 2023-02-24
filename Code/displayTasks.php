@@ -82,8 +82,8 @@ if (mysqli_num_rows($result_Tasks) > 0) {
       echo "<td>" . $task_type['name'] . "</td>";
       echo "<td>" . $row['due_date'] . "</td>";
       echo "<td><a href='editTask.php?id=" . $row['id'] . "'>Edit</a><br></td>";
-      echo "<td><a href='deleteTaskTest.php?id=" . $row['id'] . "'>Delete</a><br></td>";
-      echo "<td><a href='markTaskTest.php?id=" . $row['id'] . "'>XXX</a><br></td>";
+      echo "<td><a href='deleteTask.php?id=" . $row['id'] . "'>Delete</a><br></td>";
+      echo "<td><a href='markTask.php?id=" . $row['id'] . "'>Done</a><br></td>";
       echo "</tr>";
     }
     echo "</table>";
