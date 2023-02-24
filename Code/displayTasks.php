@@ -7,17 +7,25 @@ include('db_connection.php');
 $sql_TaskTypes = "SELECT * FROM task_types";
 $result_TaskTypes = mysqli_query($conn, $sql_TaskTypes);
 
+echo "<div class='container'>";
 // Create a form to filter the tasks by task type
-echo "<form method='post'>";
-echo "<label>Filter by Task Type:</label>";
-echo "<select name='task_type_id'>";
+echo "<form class='form-inline' method='post'>";
+echo "<div class='form-group col-md-2'>";
+echo "<label>Filter by Task Type: </label>";
+echo "</div>";
+echo "<div class='form-group col-md-2'>";
+echo "<select id='inputState' class='form-control' name='task_type_id'>";
 echo "<option value=''>All</option>";
 while ($row = mysqli_fetch_assoc($result_TaskTypes)) {
   echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
 }
 echo "</select>";
-echo "<input type='submit' value='Filter'>";
+echo "</div>";
+echo "<div class='form-group col-md-1'>";
+echo "<input class='btn btn-primary' type='submit' value='Filter'>";
+echo "</div>";
 echo "</form>";
+echo "</br>";
 
 // Retrieve all tasks from the database
 $sql_Tasks = "SELECT * FROM tasks WHERE completed = 0";
@@ -95,3 +103,12 @@ if (mysqli_num_rows($result_Tasks) > 0) {
   mysqli_close($conn);
   
   ?>
+<footer class="bg-light text-center text-lg-start fixed-bottom">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Copyright:
+    <a class="text-dark" href="#">Neven Kljajić</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+</div>

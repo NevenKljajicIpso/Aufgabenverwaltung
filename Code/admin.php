@@ -72,15 +72,23 @@
         </div>
       </form>
     </div>  
-
+    </br>
     <div>
       <form method="post" enctype="multipart/form-data" action="importTask.php">
         <label for="import_file">Import File:</label>
         <input type="file" name="import_file" accept=".json, .xml">
-        <input type="submit" value="Import">
+        <input class="btn btn-primary" type="submit" value="Import">
       </form>
     </div>
 
+    <footer class="bg-light text-center text-lg-start fixed-bottom">
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2023 Copyright:
+        <a class="text-dark" href="#">Neven Kljajić</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
   </div>
 </body>
 </html>

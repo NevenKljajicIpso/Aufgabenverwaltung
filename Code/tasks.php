@@ -16,12 +16,9 @@
     </div>
 
     <div>
-      <button onclick="document.location='createNewTask.php'">Create a new Task</button>
+      <button type="button" class="btn btn-primary" onclick="document.location='createNewTask.php'">Create a new Task</button>
     </div>
-    <br>
-    <br>
-    <br>
-
+    </br>
     <div>
       <?php include 'displayTasks.php'; ?>
     </div>  
