@@ -51,56 +51,43 @@ mysqli_close($conn);
   <textarea name="description" id="description"><?php echo $task['description']; ?></textarea><br>
   <label for="person">Person:</label><br>
   <select name="person" id="person">
-    <option value="">Select a person</option>
     <?php
-    // Connect to the database
-    $conn = mysqli_connect($host, $username, $password, $dbname);
+      // Connect to the database and retrieve all persons
+      $conn = mysqli_connect($host, $username, $password, $dbname);
+      $sql = "SELECT * FROM persons";
+      $result = mysqli_query($conn, $sql);
 
-    // Check connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-
-    // Retrieve all persons from the database
-    $sql = "SELECT * FROM persons";
-    $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
-      while($row = mysqli_fetch_assoc($result)) {
-        // Output each person as an option in the select menu
-        echo "<option value='" . $row['id'] . "'>" . $row['name'] . " " . $row['first_name'] . "</option>";
+      // Iterate over each person and output an option element
+      while ($row = mysqli_fetch_assoc($result)) {
+        $selected = ($row['id'] == $task['person_id']) ? 'selected' : '';
+        echo "<option value='{$row['id']}' $selected>{$row['name']} {$row['first_name']}</option>";
       }
-    }
 
-    mysqli_close($conn);
+      // Close the database connection
+      mysqli_close($conn);
     ?>
-  </select><br>
+  </select>
+  <br>
   <label for="type">Type:</label><br>
   <select name="type" id="type">
-  <option value="">Select a type</option>
-  <?php
-    // Connect to the database
-    $conn = mysqli_connect($host, $username, $password, $dbname);
+    <?php
+      // Connect to the database and retrieve all task types
+      $conn = mysqli_connect($host, $username, $password, $dbname);
+      $sql = "SELECT * FROM task_types";
+      $result = mysqli_query($conn, $sql);
 
-    // Check connection
-    if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-    }
-
-    // Retrieve all task types from the database
-    $sql = "SELECT * FROM task_types";
-    $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) > 0) {
-      while($row = mysqli_fetch_assoc($result)) {
-        // Output each task type as an option in the select menu
-        echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
+      // Iterate over each task type and output an option element
+      while ($row = mysqli_fetch_assoc($result)) {
+        $selected = ($row['id'] == $task['task_type_id']) ? 'selected' : '';
+        echo "<option value='{$row['id']}' $selected>{$row['name']}</option>";
       }
-    }
 
-    mysqli_close($conn);
+      // Close the database connection
+      mysqli_close($conn);
     ?>
-      <label for="due_date">Due Date:</label><br>
-      <input type="date" name="due_date" id="due_date" value="<?php echo $task['due_date']; ?>"><br><br>
-      <input type="submit" name="submit" value="Save">
-    </form>
+  </select>
+  </br>
+  <label for="due_date">Due Date:</label><br>
+  <input type="date" name="due_date" id="due_date" value="<?php echo $task['due_date']; ?>"><br><br>
+  <input type="submit" name="submit" value="Save">
+</form>

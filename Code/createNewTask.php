@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do Website</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
 <?php
 
 // Include the database connection file
@@ -26,6 +34,8 @@ if (isset($_POST['submit'])) {
       if (mysqli_query($conn, $sql)) {
         $success_Message = "Task created successfully";
         echo "<script type='text/javascript'>alert('$success_Message');</script>";
+        header("Location: tasks.php");
+        exit;
       } else {
         $error_message = "Error: " . $sql . "<br>" . mysqli_error($conn);
         echo "<script type='text/javascript'>alert('$error_message');</script>";
@@ -110,3 +120,4 @@ mysqli_close($conn);
   </div>
   <input type="submit" name="submit" value="Create Task">
 </form>
+</body>

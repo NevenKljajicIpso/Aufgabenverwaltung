@@ -16,7 +16,7 @@
     </div>
 
     <div>
-      <?php include 'createNewTask.php'; ?>
+      <button onclick="document.location='createNewTask.php'">Create a new Task</button>
     </div>
     <br>
     <br>
