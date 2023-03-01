@@ -1,9 +1,9 @@
 <?php
 
-// Include the database connection file
+// Include database connection file
 include('db_connection.php');
 
-// Check if the form has been submitted
+// Check if form has been submitted
 if (isset($_POST['submit'])) {
   // Get the form data
   $id = mysqli_real_escape_string($conn, $_POST['id']);
@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
     $error_Message = "Please fill in all fields.";
     echo "<script type='text/javascript'>alert('$error_message');</script>";
   } else {
-    // Update the task in the database
+    // Update task in the database
     $sql1 = "UPDATE tasks SET title='$title', description='$description', person_id='$person', task_type_id='$type', due_date='$due_date' WHERE id=$id";
     if (mysqli_query($conn, $sql1)) {
       header("Location: tasks.php");
@@ -63,7 +63,6 @@ mysqli_close($conn);
         echo "<option value='{$row['id']}' $selected>{$row['name']} {$row['first_name']}</option>";
       }
 
-      // Close the database connection
       mysqli_close($conn);
     ?>
   </select>
@@ -82,7 +81,6 @@ mysqli_close($conn);
         echo "<option value='{$row['id']}' $selected>{$row['name']}</option>";
       }
 
-      // Close the database connection
       mysqli_close($conn);
     ?>
   </select>

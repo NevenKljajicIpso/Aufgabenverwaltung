@@ -1,20 +1,20 @@
 <?php
 
-// Include the database connection file
+// Include database connection file
 include('db_connection.php');
 
-// Check if the form has been submitted
+// Check if form has been submitted
 if (isset($_POST['submit'])) {
   // Get the form data
   $name = mysqli_real_escape_string($conn, $_POST['name']);
   $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
   $mail_address = mysqli_real_escape_string($conn, $_POST['mail_address']);
 
-  // Check that all fields are filled in
+  // Check if all fields are filled
   if (empty($name) || empty($first_name) || empty($mail_address)) {
     echo "Please fill in all fields.";
   } else {
-    // Insert the person into the database
+    // Insert person into database
     $sql = "INSERT INTO persons (name, first_name, email) VALUES ('$name', '$first_name', '$mail_address')";
     if (mysqli_query($conn, $sql)) {
       header('Location:admin.php');

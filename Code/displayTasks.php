@@ -1,14 +1,14 @@
 <?php
 
-// Include the database connection file
+// Include database connection file
 include('db_connection.php');
 
-// Retrieve all task types from the database
+// Retrieve all task_types from database
 $sql_TaskTypes = "SELECT * FROM task_types";
 $result_TaskTypes = mysqli_query($conn, $sql_TaskTypes);
 
+// Create form to filter the tasks by task_type
 echo "<div class='container'>";
-// Create a form to filter the tasks by task type
 echo "<form class='form-inline' method='post'>";
 echo "<div class='form-group col-md-2'>";
 echo "<label>Filter by Task Type: </label>";
@@ -27,10 +27,10 @@ echo "</div>";
 echo "</form>";
 echo "</br>";
 
-// Retrieve all tasks from the database
+// Retrieve all tasks that are not completed from database
 $sql_Tasks = "SELECT * FROM tasks WHERE completed = 0";
 
-// If a task type was selected, filter the tasks by that task type
+// If a task type was selected, filter the tasks by that task_type
 if (isset($_POST['task_type_id']) && !empty($_POST['task_type_id'])) {
   $task_type_id = mysqli_real_escape_string($conn, $_POST['task_type_id']);
   $sql_Tasks .= " AND task_type_id = '$task_type_id'";
@@ -40,8 +40,8 @@ $sql_Tasks .= " ORDER BY due_date ASC;";
 
 $result_Tasks = mysqli_query($conn, $sql_Tasks);
 
+// Output the tasks in a table
 if (mysqli_num_rows($result_Tasks) > 0) {
-    // Output the tasks in a table
       echo '<table class="table">
               <thead>
                 <tr>
@@ -77,7 +77,7 @@ if (mysqli_num_rows($result_Tasks) > 0) {
           // Task is within its deadline, use the color specified for its task type
           $task_color = $task_color['color'];
       } else {
-          // Task is not within its deadline, use a default color
+          // Task is not within its deadline, use default color white
           $task_color = '#ffffff';
       }
   
@@ -103,12 +103,13 @@ if (mysqli_num_rows($result_Tasks) > 0) {
   mysqli_close($conn);
   
   ?>
-<footer class="bg-light text-center text-lg-start fixed-bottom">
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2023 Copyright:
-    <a class="text-dark" href="#">Neven Kljajić</a>
-  </div>
-  <!-- Copyright -->
-</footer>
+
+  <!-- Footer -->
+  <footer class="bg-light text-center text-lg-start fixed-bottom">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 Copyright:
+      <a class="text-dark" href="#">Neven Kljajić</a>
+    </div>
+  </footer>
+  
 </div>

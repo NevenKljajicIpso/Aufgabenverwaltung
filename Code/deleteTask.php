@@ -1,9 +1,9 @@
 <?php
 
-// Include the database connection file
+// Include database connection file
 include('db_connection.php');
 
-// Check if the task ID is set in the URL
+// Check if task_ID is set in the URL
 if (isset($_GET['id'])) {
   $id = mysqli_real_escape_string($conn, $_GET['id']);
 

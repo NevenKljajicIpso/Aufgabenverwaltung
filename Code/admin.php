@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>To-Do Website</title>
+  <title>Aufgabenverwaltung</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="stylesheet.css">
 </head>
@@ -15,8 +15,8 @@
       </nav> 
     </div>
 
+    <!-- HTML form for adding a person -->
     <div>
-      <!-- HTML form for adding a person -->
       <form action="addPerson.php" method="post">
         <div class="form-group row">
           <label for="name" class="col-sm-2 col-form-label">First Name</label>
@@ -44,8 +44,8 @@
       </form>
     </div>
     
+    <!-- HTML form for adding a task type -->
     <div>
-      <!-- HTML form for adding a task type -->
       <form action="addType.php" method="post">
         <div class="form-group row">
           <label for="name" class="col-sm-2 col-form-label">Name</label>
@@ -71,8 +71,11 @@
           </div>
         </div>
       </form>
-    </div>  
+    </div> 
+
     </br>
+
+    <!-- Button to import XML or JSON File -->
     <div>
       <form method="post" enctype="multipart/form-data" action="importTask.php">
         <label for="import_file">Import File:</label>
@@ -81,14 +84,14 @@
       </form>
     </div>
 
+    <!-- Footer -->
     <footer class="bg-light text-center text-lg-start fixed-bottom">
-      <!-- Copyright -->
       <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
         © 2023 Copyright:
         <a class="text-dark" href="#">Neven Kljajić</a>
       </div>
-      <!-- Copyright -->
     </footer>
+
   </div>
 </body>
 </html>
