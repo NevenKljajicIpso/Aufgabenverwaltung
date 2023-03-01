@@ -60,17 +60,17 @@
     <!-- HTML form for creating a new task -->
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 
-      <div class="form-group">
+      <div class="form-group col-6">
         <label for="title">Title</label>
         <input class="form-control" type="text" name="title" id="title" value="<?php echo isset($title) ? $title : ''; ?>">
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-6">
         <label for="description">Description</label>
         <textarea class="form-control" name="description" id="description"><?php echo isset($description) ? $description : ''; ?></textarea>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-3">
         <label for="person">Person:</label>
         <select class="form-control" name="person" id="person">
           <option value="">Select a person</option>
@@ -99,7 +99,7 @@
         </select>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-3">
         <label for="task_type">Task Type:</label>
         <select class="form-control" name="task_type" id="task_type">
           <option value="">Select a task type</option>
@@ -128,13 +128,16 @@
         </select>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-3">
         <label for="due_date">Due Date:</label>
         <input class="form-control" type="date" name="due_date" id="due_date" value="<?php echo isset($due_date) ? $due_date : ''; ?>">
       </div>
 
-      <input class='btn btn-primary' type="submit" name="submit" value="Create Task">
-      
+      <div class="form-group col-3">
+        <input class='btn btn-primary' type="submit" name="submit" value="Create Task">
+        <button type="button" class="btn btn-secondary" onclick="location.href='tasks.php';">Cancel</button>
+      </div>    
+
     </form>
 
     <!-- Footer -->
