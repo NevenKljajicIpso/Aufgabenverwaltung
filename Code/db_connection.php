@@ -2,7 +2,7 @@
 
 // Connection parameters
 $host = "localhost";
-$username = "neno";
+$username = "tester";
 $password = "1234";
 $dbname = "todo";
 

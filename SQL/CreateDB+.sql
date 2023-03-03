@@ -9,6 +9,7 @@ CREATE TABLE persons (
   email VARCHAR(255) NOT NULL
 );
 
+-- Insert 3 persons
 INSERT INTO persons (name, first_name, email)
 VALUES 
 ('Potter', 'Harry', 'harry.potter@Zmail.com'),
@@ -22,6 +23,7 @@ CREATE TABLE task_types (
   due_days VARCHAR(255) NOT NULL
 );
 
+-- Insert 3 task types
 INSERT INTO task_types (name, color, due_days)
 VALUES 
 ('A', 'blue', '14'),
@@ -40,6 +42,7 @@ CREATE TABLE tasks (
   FOREIGN KEY (task_type_id) REFERENCES task_types(id)
 );
 
+-- Insert 8 random tasks
 INSERT INTO tasks (title, description, person_id, task_type_id, due_date, completed)
 VALUES
 ('Clean', 'Clean the toilet', 3, 3, '2023-05-20', 0),
@@ -50,3 +53,7 @@ VALUES
 ('Relationship', 'Have fun with Ron and Hermione', 1, 1, '2023-05-06', 0),
 ('School', 'Finish the Project', 2, 2, '2023-09-25', 0),
 ('Shopping', 'Buy Bricks', 3, 2, '2023-10-10', 0);
+
+-- Create a user for the database
+CREATE USER 'tester'@'localhost' IDENTIFIED BY '1234';
+GRANT ALL PRIVILEGES ON todo.* TO 'tester'@'localhost';
