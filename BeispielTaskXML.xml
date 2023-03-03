@@ -3,22 +3,22 @@
     <task>
         <title>Task 1 XML</title>
         <description>Description for Task 1</description>
-        <person_id>6</person_id>
+        <person_id>1</person_id>
         <task_type_id>1</task_type_id>
         <due_date>2023-06-20</due_date>
     </task>
         <task>
         <title>Task 2 XML</title>
         <description>Description for Task 2</description>
-        <person_id>7</person_id>
-        <task_type_id>1</task_type_id>
+        <person_id>2</person_id>
+        <task_type_id>2</task_type_id>
         <due_date>2023-05-19</due_date>
     </task>
         <task>
         <title>Task 3 XML</title>
         <description>Description for Task 3</description>
-        <person_id>8</person_id>
-        <task_type_id>2</task_type_id>
-        <due_date>2023-04-06</due_date>
+        <person_id>3</person_id>
+        <task_type_id>3</task_type_id>
+        <due_date>2023-09-06</due_date>
     </task>
 </tasks>

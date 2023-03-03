@@ -19,6 +19,7 @@
     
       <!-- HTML form for adding a person -->
       <div class="addPerson">
+      <h3>Add a task type</h3>
         <form action="addPerson.php" method="post">
           <div class="form-group row">
             <label for="name" class="col-sm-4 col-form-label">First Name</label>
@@ -48,6 +49,7 @@
       
       <!-- HTML form for adding a task type -->
       <div class="addTaskType">
+        <h3>Add a person</h3>
         <form action="addType.php" method="post">
           <div class="form-group row">
             <label for="name" class="col-sm-4 col-form-label">Name</label>
@@ -81,6 +83,8 @@
 
     <!-- Button to import XML or JSON File -->
     <div>
+      <h3>Import File</h3>
+      </br>
       <form method="post" enctype="multipart/form-data" action="importTask.php">
         <label for="import_file">Import File:</label>
         <input type="file" name="import_file" accept=".json, .xml">
